@@ -17,6 +17,12 @@ export interface WindowScene {
   treeDensity: TreeDensity
   pedestrianStatus: PedestrianStatus
   note: string
+  /** 查看时间（ISO），冷存淘汰时按它判断谁“常看”；旧数据升级时按采样时间补上 */
+  viewedAt: string
+  /** 是否加了重点；重点记录被重新打开/加星后会回到手边 */
+  highlighted: boolean
+  /** 待搬迁标记：挪进冷存失败时留下，下次启动接着重试没搬完的 */
+  pendingEviction?: boolean
 }
 
 export interface SceneFormData {
